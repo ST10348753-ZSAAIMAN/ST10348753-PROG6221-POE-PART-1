@@ -73,5 +73,76 @@ namespace ST10348753_PROG6221_POE_PART_1
 
             return myRecipe; // Return the fully constructed recipe
         }
+
+        /// <summary>
+        /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
+        /// </summary>
+        /// <param name="recipe">The recipe to edit.</param>
+        /// <returns>The updated recipe.</returns>
+        private static Recipe EditRecipe(Recipe recipe)
+        {
+            Console.Clear();
+            Console.WriteLine("Enter a command number:\n1. Display\n2. Scale\n3. Reset\n4. Clear\n5. Exit");
+
+            int command = ReadInt(); // Read the command number, ensuring it's a valid integer
+            switch (command)
+            {
+                case 1: // Display the recipe
+                    recipe.DisplayRecipe();
+                    break;
+                case 2: // Scale the recipe quantities
+                    Console.WriteLine("Enter scale factor (e.g., 0.5, 2, 3):");
+                    double factor = ReadDouble(); // Read the scale factor, ensuring it's a valid double
+                    recipe.ScaleRecipe(factor);
+                    Console.Clear();  // Optionally clear the console for a clean display
+                    Console.WriteLine("Scaled Recipe:");
+                    recipe.DisplayRecipe();  // Display the recipe immediately after scaling
+                    break;
+                case 3: // Reset the recipe to original quantities
+                    recipe.ResetQuantities();
+                    break;
+                case 4: // Clear all recipe data and start fresh
+                    Console.WriteLine("Recipe cleared. Starting a new recipe...");
+                    Thread.Sleep(3000); // Provide a pause for the user to see the message
+                    recipe = CreateRecipe(); // Create a new recipe
+                    break;
+                case 5: // Exit the application
+                    Environment.Exit(0);
+                    break;
+                default: // Handle invalid command inputs
+                    Console.WriteLine("Invalid command. Please try again.");
+                    break;
+            }
+
+            return recipe; // Return the potentially modified recipe
+        }
+
+        /// <summary>
+        /// Reads a positive integer from the console, ensuring valid input.
+        /// </summary>
+        /// <returns>A valid positive integer.</returns>
+        private static int ReadInt()
+        {
+            int result;
+            while (!int.TryParse(Console.ReadLine(), out result) || result < 1)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid positive integer:");
+            }
+            return result;
+        }
+
+        /// <summary>
+        /// Reads a positive double from the console, ensuring valid input.
+        /// </summary>
+        /// <returns>A valid positive double.</returns>
+        private static double ReadDouble()
+        {
+            double result;
+            while (!double.TryParse(Console.ReadLine(), out result) || result <= 0)
+            {
+                Console.WriteLine("Invalid input. Please enter a valid positive number:");
+            }
+            return result;
+        }
     }
 }
