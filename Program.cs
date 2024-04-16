@@ -144,5 +144,25 @@ namespace ST10348753_PROG6221_POE_PART_1
             }
             return result;
         }
+
+        /// <summary>
+        /// Validates the format of the input for an ingredient and creates an Ingredient object.
+        /// </summary>
+        /// <returns>A valid Ingredient object.</returns>
+        private static Ingredient ReadIngredient()
+        {
+            while (true)
+            {
+                string[] parts = Console.ReadLine().Split(' ');
+                // Ensure the format matches expected "Name Quantity Unit"
+                if (parts.Length == 3 && double.TryParse(parts[1], out double quantity) && quantity > 0)
+                {
+                    return new Ingredient(parts[0], quantity, parts[2]);
+                }
+                Console.WriteLine("Invalid input. Please enter in the format 'Name Quantity Unit':");
+            }
+        }
     }
+
 }
+
