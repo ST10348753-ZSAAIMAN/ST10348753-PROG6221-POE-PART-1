@@ -105,6 +105,7 @@ namespace ST10348753_PROG6221_POE_PART_1
 
             Steps[stepCount++] = step; // Add step and increment the count
         }
+
         /// <summary>
         /// Displays the complete recipe including name, ingredients, and preparation steps.
         /// </summary>
@@ -126,5 +127,24 @@ namespace ST10348753_PROG6221_POE_PART_1
             Console.WriteLine("Press any key to return to the previous menu");
             Console.ReadKey(); // Pause the console for the user to read the recipe details
         }
+
+        /// <summary>
+        /// Scales the quantities of all ingredients in the recipe by a specified factor.
+        /// </summary>
+        /// <param name="factor">The factor by which to scale the ingredient quantities. Must be greater than zero.</param>
+        /// <exception cref="ArgumentOutOfRangeException">Thrown if the scale factor is less than or equal to zero.</exception>
+        public void ScaleRecipe(double factor)
+        {
+            if (factor <= 0)
+            {
+                throw new ArgumentOutOfRangeException(nameof(factor), "Scale factor must be greater than zero.");
+            }
+
+            for (int i = 0; i < ingredientCount; i++)
+            {
+                Ingredients[i].Scale(factor); // Scale each ingredient by the given factor
+            }
+        }
+
     }
 }
