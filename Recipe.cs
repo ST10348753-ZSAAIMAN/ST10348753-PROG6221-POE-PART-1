@@ -157,5 +157,16 @@ namespace ST10348753_PROG6221_POE_PART_1
             }
         }
 
+        /// <summary>
+        /// Clears all ingredients and steps from the recipe, effectively resetting it.
+        /// </summary>
+        public void ClearRecipe()
+        {
+            Ingredients = new Ingredient[10]; // Reset the Ingredients array to initial capacity
+            Steps = new string[10];           // Reset the Steps array to initial capacity
+            ingredientCount = 0;              // Reset the ingredient count
+            stepCount = 0;                    // Reset the step count
+        }
+
     }
 }
