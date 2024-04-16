@@ -63,5 +63,30 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         /// <param name="ingredient">The ingredient to add. Must not be null.</param>
         /// <exception cref="ArgumentNullException">Thrown when the ingredient is null.</exception>
+
+        public void AddIngredient(Ingredient ingredient)
+        {
+            if (ingredient == null)
+            {
+                throw new ArgumentNullException(nameof(ingredient), "Ingredient cannot be null.");
+            }
+
+            // Check if the ingredients array is full; if so, resize it
+            if (ingredientCount == Ingredients.Length)
+            {
+                Ingredient[] temp = Ingredients;
+                Array.Resize(ref temp, Ingredients.Length * 2); // Double the array size
+                Ingredients = temp; // Assign the resized array back
+            }
+
+            Ingredients[ingredientCount++] = ingredient; // Add ingredient and increment the count
+        }
+
+        /// <summary>
+        /// Adds a step to the recipe. If the array is full, it is resized.
+        /// </summary>
+        /// <param name="step">The preparation step to add. Must not be null or empty.</param>
+        /// <exception cref="ArgumentException">Thrown when the step is null or empty.</exception>
+
     }
 }
