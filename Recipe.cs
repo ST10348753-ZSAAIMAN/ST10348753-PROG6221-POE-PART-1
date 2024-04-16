@@ -88,5 +88,23 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// <param name="step">The preparation step to add. Must not be null or empty.</param>
         /// <exception cref="ArgumentException">Thrown when the step is null or empty.</exception>
 
+        public void AddStep(string step)
+        {
+            if (string.IsNullOrEmpty(step))
+            {
+                throw new ArgumentException("Step cannot be null or empty.", nameof(step));
+            }
+
+            // Check if the steps array is full; if so, resize it
+            if (stepCount == Steps.Length)
+            {
+                string[] temp = Steps;
+                Array.Resize(ref temp, Steps.Length * 2); // Double the array size
+                Steps = temp; // Assign the resized array back
+            }
+
+            Steps[stepCount++] = step; // Add step and increment the count
+        }
+
     }
 }
