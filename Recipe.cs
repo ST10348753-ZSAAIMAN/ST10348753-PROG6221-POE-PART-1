@@ -105,6 +105,26 @@ namespace ST10348753_PROG6221_POE_PART_1
 
             Steps[stepCount++] = step; // Add step and increment the count
         }
+        /// <summary>
+        /// Displays the complete recipe including name, ingredients, and preparation steps.
+        /// </summary>
+        public void DisplayRecipe()
+        {
+            Console.WriteLine($"Recipe Name: {Name}");
+            Console.WriteLine("Ingredients:");
+            for (int i = 0; i < ingredientCount; i++)
+            {
+                Ingredient ingredient = Ingredients[i];
+                Console.WriteLine($"{ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name}");
+            }
 
+            Console.WriteLine("\nPreparation Steps:");
+            for (int i = 0; i < stepCount; i++)
+            {
+                Console.WriteLine($"Step {i + 1}: {Steps[i]}");
+            }
+            Console.WriteLine("Press any key to return to the previous menu");
+            Console.ReadKey(); // Pause the console for the user to read the recipe details
+        }
     }
 }
