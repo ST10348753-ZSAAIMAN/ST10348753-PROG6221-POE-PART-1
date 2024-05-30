@@ -6,13 +6,21 @@
 //             https://www.tutorialspoint.com/csharp/csharp_multithreading.htm
 //             https://learn.microsoft.com/en-us/dotnet/api/system.array.resize?view=net-8.0
 //             https://www.geeksforgeeks.org/c-sharp-encapsulation/
-//             https://www.geeksforgeeks.org/recursion-in-c-sharp/  
+//             https://www.geeksforgeeks.org/recursion-in-c-sharp/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/
+//             https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0
+//             https://www.tutorialsteacher.com/csharp/csharp-delegates
+//             https://www.geeksforgeeks.org/c-sharp-events/
+//             https://code-maze.com/csharp-collections/
 
 
 using System;
 using System.Collections.Generic;
 
-namespace ST10348753_PROG6221_POE_PART_1
+namespace ST10348753_PROG6221_POE_PART_2
 {
     /// <summary>
     /// Represents a recipe, which includes a collection of ingredients and a list of steps for preparation.

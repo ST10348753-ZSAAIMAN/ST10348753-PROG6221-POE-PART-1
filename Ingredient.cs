@@ -11,7 +11,7 @@
 
 using System;
 
-namespace ST10348753_PROG6221_POE_PART_1
+namespace ST10348753_PROG6221_POE_PART_2
 {
     /// <summary>
     /// Represents an ingredient used in a recipe, detailing its name, quantity, and unit of measurement.

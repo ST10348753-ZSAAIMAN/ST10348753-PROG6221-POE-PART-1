@@ -14,7 +14,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
-namespace ST10348753_PROG6221_POE_PART_1
+namespace ST10348753_PROG6221_POE_PART_2
 {
     /// <summary>
     /// Main class of the application, managing user interactions and recipe management operations.
@@ -182,7 +182,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             }
         }
 
-
+        //---------------------------------------------------------------------------------------------
 
         /// <summary>
         /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
@@ -191,41 +191,59 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// <returns>The updated recipe.</returns>
         private static Recipe EditRecipe(Recipe recipe)
         {
-            Console.Clear();
-            Console.WriteLine("Enter a command number:\n1. Display\n2. Scale\n3. Reset\n4. Clear\n5. Exit");
-
-            int command = ReadInt();
-            switch (command)
+            while (true)
             {
-                case 1:
-                    recipe.DisplayRecipe();
-                    break;
-                case 2:
-                    Console.WriteLine("Enter scale factor (e.g., 0.5, 2, 3):");
-                    double factor = ReadDouble();
-                    recipe.ScaleRecipe(factor);
-                    Console.Clear();
-                    Console.WriteLine("Scaled Recipe:");
-                    recipe.DisplayRecipe();
-                    break;
-                case 3:
-                    recipe.ResetQuantities();
-                    break;
-                case 4:
-                    recipe.ClearRecipe();
-                    break;
-                case 5:
-                    Environment.Exit(0);
-                    break;
-                default:
-                    // Display error message in red text
-                    Console.ForegroundColor = ConsoleColor.Red;
-                    Console.WriteLine("Invalid command. Please try again.");
-                    Console.ResetColor();
-                    break;
+                Console.Clear();
+                // Display edit menu options
+                Console.WriteLine("Enter a command number:\n1. Display\n2. Scale\n3. Reset\n4. Clear\n5. Calculate Total Calories\n6. Exit");
+                int command = ReadInt();
+                switch (command)
+                {
+                    case 1:
+                        // Display the recipe
+                        recipe.DisplayRecipe();
+                        break;
+                    case 2:
+                        // Scale the recipe
+                        Console.WriteLine("Enter scale factor (e.g., 0.5, 2, 3):");
+                        double factor = ReadDouble();
+                        recipe.ScaleRecipe(factor);
+                        Console.Clear();
+                        Console.WriteLine("Scaled Recipe:");
+                        recipe.DisplayRecipe();
+                        break;
+                    case 3:
+                        // Reset ingredient quantities
+                        recipe.ResetQuantities();
+                        break;
+                    case 4:
+                        // Clear the recipe
+                        recipe.ClearRecipe();
+                        break;
+                    case 5:
+                        // Calculate total calories
+                        double totalCalories = recipe.CalculateTotalCalories();
+                        Console.WriteLine($"Total Calories: {totalCalories}");
+                        if (totalCalories > 300)
+                        {
+                            Console.ForegroundColor = ConsoleColor.Red;
+                            Console.WriteLine("Warning: Total calories exceed 300!");
+                            Console.ResetColor();
+                        }
+                        Console.WriteLine("Press any key to return to the previous menu");
+                        Console.ReadKey();
+                        break;
+                    case 6:
+                        // Exit edit menu
+                        return recipe;
+                    default:
+                        // Handle invalid command
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Invalid command. Please try again.");
+                        Console.ResetColor();
+                        break;
+                }
             }
-
-            return recipe;
         }
 
         //---------------------------------------------------------------------------------------------
@@ -281,20 +299,18 @@ namespace ST10348753_PROG6221_POE_PART_1
         {
             while (true)
             {
+                // Prompt for ingredient details
                 string[] parts = Console.ReadLine().Split(' ');
-                // Check if the input format is correct and the quantity is valid
-                if (parts.Length == 3 && double.TryParse(parts[1], out double quantity) && quantity > 0)
+                if (parts.Length == 5 && double.TryParse(parts[1], out double quantity) && quantity > 0 && double.TryParse(parts[3], out double calories))
                 {
-                    return new Ingredient(parts[0], quantity, parts[2]);
+                    return new Ingredient(parts[0], quantity, parts[2], calories, parts[4]);
                 }
-                // Display error message in red text
+                // Display error message for invalid input format
                 Console.ForegroundColor = ConsoleColor.Red;
-                Console.WriteLine("Invalid input. Please enter in the format 'Name Quantity Unit':");
+                Console.WriteLine("Invalid input. Please enter in the format 'Name Quantity Unit Calories FoodGroup':");
                 Console.ResetColor();
             }
         }
-
     }
-
 }
 //------------------------------------------...ooo000 END OF FILE 000ooo...------------------------------------------------------//
