@@ -34,7 +34,7 @@ namespace ST10348753_PROG6221_POE_PART_1
                 Console.Clear();
                 // Display the main menu options
                 Console.WriteLine("Enter a command number:\n1. Add Recipe\n2. List Recipes\n3. Select Recipe\n4. Exit");
-                int command = ReadInt();
+                int command = ReadInt(); // Read user command
                 switch (command)
                 {
                     case 1:
