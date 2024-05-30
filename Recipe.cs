@@ -65,21 +65,26 @@ namespace ST10348753_PROG6221_POE_PART_1
 
         public void AddIngredient(Ingredient ingredient)
         {
+            // Check if the ingredient is null
             if (ingredient == null)
             {
-                throw new ArgumentNullException(nameof(ingredient), "Ingredient cannot be null.");
+                // Display error message in red text
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Ingredient cannot be null.");
+                Console.ResetColor();
+                return;
             }
 
             // Check if the ingredients array is full; if so, resize it
             if (ingredientCount == Ingredients.Length)
             {
-                Ingredient[] temp = Ingredients;
-                Array.Resize(ref temp, Ingredients.Length * 2); // Double the array size
-                Ingredients = temp; // Assign the resized array back
+                Array.Resize(ref Ingredients, Ingredients.Length * 2);
             }
 
-            Ingredients[ingredientCount++] = ingredient; // Add ingredient and increment the count
+            // Add the ingredient to the array and increment the count
+            Ingredients[ingredientCount++] = ingredient;
         }
+
 
         /// <summary>
         /// Adds a step to the recipe. If the array is full, it is resized.
