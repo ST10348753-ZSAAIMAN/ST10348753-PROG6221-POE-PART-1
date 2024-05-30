@@ -124,12 +124,17 @@ namespace ST10348753_PROG6221_POE_PART_1
         private static int ReadInt()
         {
             int result;
+            // Loop until a valid positive integer is entered
             while (!int.TryParse(Console.ReadLine(), out result) || result < 1)
             {
+                // Display error message in red text
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Invalid input. Please enter a valid positive integer:");
+                Console.ResetColor();
             }
             return result;
         }
+
 
         /// <summary>
         /// Reads a positive double from the console, ensuring valid input.
