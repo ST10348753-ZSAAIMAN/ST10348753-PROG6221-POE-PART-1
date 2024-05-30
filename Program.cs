@@ -84,38 +84,40 @@ namespace ST10348753_PROG6221_POE_PART_1
             Console.Clear();
             Console.WriteLine("Enter a command number:\n1. Display\n2. Scale\n3. Reset\n4. Clear\n5. Exit");
 
-            int command = ReadInt(); // Read the command number, ensuring it's a valid integer
+            int command = ReadInt();
             switch (command)
             {
-                case 1: // Display the recipe
+                case 1:
                     recipe.DisplayRecipe();
                     break;
-                case 2: // Scale the recipe quantities
+                case 2:
                     Console.WriteLine("Enter scale factor (e.g., 0.5, 2, 3):");
-                    double factor = ReadDouble(); // Read the scale factor, ensuring it's a valid double
+                    double factor = ReadDouble();
                     recipe.ScaleRecipe(factor);
-                    Console.Clear();  // Optionally clear the console for a clean display
+                    Console.Clear();
                     Console.WriteLine("Scaled Recipe:");
-                    recipe.DisplayRecipe();  // Display the recipe immediately after scaling
+                    recipe.DisplayRecipe();
                     break;
-                case 3: // Reset the recipe to original quantities
+                case 3:
                     recipe.ResetQuantities();
                     break;
-                case 4: // Clear all recipe data and start fresh
-                    Console.WriteLine("Recipe cleared. Starting a new recipe...");
-                    Thread.Sleep(3000); // Provide a pause for the user to see the message
-                    recipe = CreateRecipe(); // Create a new recipe
+                case 4:
+                    recipe.ClearRecipe();
                     break;
-                case 5: // Exit the application
+                case 5:
                     Environment.Exit(0);
                     break;
-                default: // Handle invalid command inputs
+                default:
+                    // Display error message in red text
+                    Console.ForegroundColor = ConsoleColor.Red;
                     Console.WriteLine("Invalid command. Please try again.");
+                    Console.ResetColor();
                     break;
             }
 
-            return recipe; // Return the potentially modified recipe
+            return recipe;
         }
+
 
         /// <summary>
         /// Reads a positive integer from the console, ensuring valid input.
