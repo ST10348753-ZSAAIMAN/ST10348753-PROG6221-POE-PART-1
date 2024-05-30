@@ -6,7 +6,22 @@
 //             https://www.tutorialspoint.com/csharp/csharp_multithreading.htm
 //             https://learn.microsoft.com/en-us/dotnet/api/system.array.resize?view=net-8.0
 //             https://www.geeksforgeeks.org/c-sharp-encapsulation/
-//             https://www.geeksforgeeks.org/recursion-in-c-sharp/  
+//             https://www.geeksforgeeks.org/recursion-in-c-sharp/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/generics/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/events/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/delegates/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/exceptions/
+//             https://docs.microsoft.com/en-us/dotnet/api/system.collections.generic.list-1?view=net-8.0
+//             https://www.tutorialsteacher.com/csharp/csharp-delegates
+//             https://www.geeksforgeeks.org/c-sharp-events/
+//             https://code-maze.com/csharp-collections/
+//             https://docs.microsoft.com/en-us/dotnet/csharp/programming-guide/concepts/linq/
+//             https://www.geeksforgeeks.org/delegates-in-c-sharp/
+//             https://www.geeksforgeeks.org/events-in-c-sharp/
+//             https://www.tutorialsteacher.com/linq
+//             https://www.c-sharpcorner.com/UploadFile/b926a6/generics-in-C-Sharp/
+//             https://www.c-sharpcorner.com/UploadFile/0c1bb2/linq-in-C-Sharp/
+//             https://www.w3schools.com/linq/
 
 
 using System;
