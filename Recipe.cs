@@ -84,7 +84,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             Ingredients[ingredientCount++] = ingredient;
         }
 
-
+        //-----------------------------------------------------------------------------------------
 
         /// <summary>
         /// Adds a step to the recipe. If the array is full, it is resized.
