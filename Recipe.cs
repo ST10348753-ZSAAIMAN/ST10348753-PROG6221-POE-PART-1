@@ -171,6 +171,25 @@ namespace ST10348753_PROG6221_POE_PART_1
             }
         }
 
+        /// <summary>
+        /// Calculates the total calories of all ingredients in the recipe.
+        /// </summary>
+        /// <returns>The total calories of the recipe.</returns>
+        public double CalculateTotalCalories()
+        {
+            double totalCalories = 0;
+            foreach (var ingredient in Ingredients)
+            {
+                totalCalories += ingredient.Calories;
+            }
+
+            if (totalCalories > 300)
+            {
+                OnCalorieExceeded?.Invoke(Name);
+            }
+
+            return totalCalories;
+        }
 
     }
 }
