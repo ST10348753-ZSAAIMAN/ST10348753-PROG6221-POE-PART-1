@@ -131,6 +131,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         {
             if (factor <= 0)
             {
+                // Display error message if the scale factor is less than or equal to zero
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Scale factor must be greater than zero.");
                 Console.ResetColor();
