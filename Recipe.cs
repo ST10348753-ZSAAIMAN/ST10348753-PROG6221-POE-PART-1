@@ -101,6 +101,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         public void DisplayRecipe()
         {
+            // Display recipe name and ingredients
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Recipe Name: {Name}");
             Console.WriteLine("Ingredients:");
