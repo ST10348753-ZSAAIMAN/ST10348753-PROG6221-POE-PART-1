@@ -72,30 +72,20 @@ namespace ST10348753_PROG6221_POE_PART_1
         //-----------------------------------------------------------------------------------------
 
         /// <summary>
-        /// Adds a step to the recipe. If the array is full, it is resized.
+        /// Adds a step to the recipe.
         /// </summary>
         /// <param name="step">The preparation step to add. Must not be null or empty.</param>
-        /// <exception cref="ArgumentException">Thrown when the step is null or empty.</exception>
         public void AddStep(string step)
         {
-            // Check if the step is null or empty
             if (string.IsNullOrEmpty(step))
             {
-                // Display error message in red text
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Step cannot be null or empty.");
                 Console.ResetColor();
                 return;
             }
 
-            // Check if the steps array is full; if so, resize it
-            if (stepCount == Steps.Length)
-            {
-                Array.Resize(ref Steps, Steps.Length * 2);
-            }
-
-            // Add the step to the array and increment the count
-            Steps[stepCount++] = step;
+            Steps.Add(step);
         }
 
         //-----------------------------------------------------------------------------------------
