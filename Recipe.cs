@@ -34,6 +34,12 @@ namespace ST10348753_PROG6221_POE_PART_1
         public string[] Steps { get; private set; }
 
         /// <summary>
+        /// Delegate for notifying when total calories exceed a specified limit.
+        /// </summary>
+        public delegate void CalorieExceededHandler(string recipeName);
+        public event CalorieExceededHandler OnCalorieExceeded;
+
+        /// <summary>
         /// Tracks the current number of ingredients to manage additions and array resizing.
         /// </summary>
         private int ingredientCount;
