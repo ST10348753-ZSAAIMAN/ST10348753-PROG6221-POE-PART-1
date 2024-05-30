@@ -119,23 +119,19 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// Scales the quantities of all ingredients in the recipe by a specified factor.
         /// </summary>
         /// <param name="factor">The factor by which to scale the ingredient quantities. Must be greater than zero.</param>
-        /// <exception cref="ArgumentOutOfRangeException">Thrown if the scale factor is less than or equal to zero.</exception>
         public void ScaleRecipe(double factor)
         {
-            // Check if the scale factor is less than or equal to zero
             if (factor <= 0)
             {
-                // Display error message in red text
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Scale factor must be greater than zero.");
                 Console.ResetColor();
                 return;
             }
 
-            // Scale each ingredient by the given factor
-            for (int i = 0; i < ingredientCount; i++)
+            foreach (var ingredient in Ingredients)
             {
-                Ingredients[i].Scale(factor);
+                ingredient.Scale(factor);
             }
         }
 
