@@ -145,6 +145,45 @@ namespace ST10348753_PROG6221_POE_PART_1
             Console.ReadKey();
         }
 
+        //---------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Allows the user to select a recipe to display and edit.
+        /// </summary>
+        /// <param name="recipes">The list of recipes to select from.</param>
+        private static void SelectRecipe(List<Recipe> recipes)
+        {
+            Console.Clear();
+            if (recipes.Count == 0)
+            {
+                // No recipes to select
+                Console.WriteLine("No recipes available.");
+            }
+            else
+            {
+                // Prompt for recipe name to select
+                Console.WriteLine("Enter the name of the recipe you want to select:");
+                string name = Console.ReadLine();
+                var recipe = recipes.FirstOrDefault(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                if (recipe != null)
+                {
+                    // Edit the selected recipe
+                    EditRecipe(recipe);
+                }
+                else
+                {
+                    // Recipe not found
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Recipe not found.");
+                    Console.ResetColor();
+                    Console.WriteLine("Press any key to return to the previous menu");
+                    Console.ReadKey();
+                }
+            }
+        }
+
+
+
         /// <summary>
         /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
         /// </summary>
