@@ -147,16 +147,23 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// <exception cref="ArgumentOutOfRangeException">Thrown if the scale factor is less than or equal to zero.</exception>
         public void ScaleRecipe(double factor)
         {
+            // Check if the scale factor is less than or equal to zero
             if (factor <= 0)
             {
-                throw new ArgumentOutOfRangeException(nameof(factor), "Scale factor must be greater than zero.");
+                // Display error message in red text
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Scale factor must be greater than zero.");
+                Console.ResetColor();
+                return;
             }
 
+            // Scale each ingredient by the given factor
             for (int i = 0; i < ingredientCount; i++)
             {
-                Ingredients[i].Scale(factor); // Scale each ingredient by the given factor
+                Ingredients[i].Scale(factor);
             }
         }
+
 
         /// <summary>
         /// Resets the quantities of all ingredients in the recipe to their original values.
