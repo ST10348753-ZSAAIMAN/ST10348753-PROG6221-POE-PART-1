@@ -95,24 +95,22 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         public void DisplayRecipe()
         {
-            // Display recipe name in green text
             Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Recipe Name: {Name}");
             Console.WriteLine("Ingredients:");
-            for (int i = 0; i < ingredientCount; i++)
+            foreach (var ingredient in Ingredients)
             {
-                Ingredient ingredient = Ingredients[i];
-                Console.WriteLine($"{ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name}");
+                Console.WriteLine($"{ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name} - {ingredient.Calories} calories, {ingredient.FoodGroup}");
             }
 
             Console.WriteLine("\nPreparation Steps:");
-            for (int i = 0; i < stepCount; i++)
+            for (int i = 0; i < Steps.Count; i++)
             {
                 Console.WriteLine($"Step {i + 1}: {Steps[i]}");
             }
-            Console.WriteLine("Press any key to return to the previous menu");
             Console.ResetColor();
-            Console.ReadKey(); // Pause the console for the user to read the recipe details
+            Console.WriteLine("Press any key to return to the previous menu");
+            Console.ReadKey();
         }
 
         //-----------------------------------------------------------------------------------------
