@@ -113,6 +113,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             Steps[stepCount++] = step;
         }
 
+        //-----------------------------------------------------------------------------------------
 
         /// <summary>
         /// Displays the complete recipe including name, ingredients, and preparation steps.
