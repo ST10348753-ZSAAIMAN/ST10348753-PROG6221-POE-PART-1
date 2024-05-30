@@ -68,6 +68,8 @@ namespace ST10348753_PROG6221_POE_PART_1
             Quantity = OriginalQuantity * factor; // Calculate the new scaled quantity based on the original.
         }
 
+        //-----------------------------------------------------------------------------------------
+
         /// <summary>
         /// Resets the quantity of the ingredient back to its original value specified at construction.
         /// </summary>
