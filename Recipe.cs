@@ -62,7 +62,6 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         /// <param name="ingredient">The ingredient to add. Must not be null.</param>
         /// <exception cref="ArgumentNullException">Thrown when the ingredient is null.</exception>
-
         public void AddIngredient(Ingredient ingredient)
         {
             // Check if the ingredient is null
@@ -84,6 +83,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             // Add the ingredient to the array and increment the count
             Ingredients[ingredientCount++] = ingredient;
         }
+
 
 
         /// <summary>
