@@ -28,6 +28,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             // List to store multiple recipes
             List<Recipe> recipes = new List<Recipe>();
 
+            // Main loop to process user commands
             while (true)
             {
                 Console.Clear();
