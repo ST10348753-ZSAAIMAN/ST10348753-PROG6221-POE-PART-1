@@ -11,6 +11,7 @@
 
 using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 
 namespace ST10348753_PROG6221_POE_PART_1
@@ -38,18 +39,23 @@ namespace ST10348753_PROG6221_POE_PART_1
                 switch (command)
                 {
                     case 1:
+                        // Add a new recipe
                         recipes.Add(CreateRecipe());
                         break;
                     case 2:
+                        // List all recipes in alphabetical order
                         ListRecipes(recipes);
                         break;
                     case 3:
+                        // Select a recipe to display and edit
                         SelectRecipe(recipes);
                         break;
                     case 4:
+                        // Exit the application
                         Environment.Exit(0);
                         break;
                     default:
+                        // Handle invalid command
                         Console.ForegroundColor = ConsoleColor.Red;
                         Console.WriteLine("Invalid command. Please try again.");
                         Console.ResetColor();
@@ -66,6 +72,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// <returns>The newly created recipe.</returns>
         private static Recipe CreateRecipe()
         {
+            // Prompt for recipe name
             Console.WriteLine("Enter the name of the recipe:");
             string name = Console.ReadLine(); // Obtain the recipe name from user input
             Console.Clear();  // Clear the console to maintain a clean interface
@@ -79,6 +86,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             for (int i = 0; i < numIngredients; i++)
             {
                 Console.Clear();
+                // Prompt for ingredient details
                 Console.WriteLine($"Enter name, quantity, unit of measurement, calories, and food group for ingredient {i + 1} (e.g., Sugar 1.5 cups 100 Sweeteners):");
                 Ingredient ingredient = ReadIngredient(); // Read each ingredient using the specified format
                 myRecipe.AddIngredient(ingredient); // Add the ingredient to the recipe
@@ -92,11 +100,13 @@ namespace ST10348753_PROG6221_POE_PART_1
 
             for (int i = 0; i < numSteps; i++)
             {
+                // Prompt for step description
                 Console.WriteLine($"Enter the description for step {i + 1}:");
                 string step = Console.ReadLine(); // Read each step description from user input
                 myRecipe.AddStep(step); // Add the step to the recipe
             }
 
+            // Subscribe to the CalorieExceeded event
             myRecipe.OnCalorieExceeded += recipeName =>
             {
                 Console.ForegroundColor = ConsoleColor.Red;
@@ -108,6 +118,32 @@ namespace ST10348753_PROG6221_POE_PART_1
         }
 
         //---------------------------------------------------------------------------------------------
+
+        /// <summary>
+        /// Lists all recipes in alphabetical order.
+        /// </summary>
+        /// <param name="recipes">The list of recipes to display.</param>
+        private static void ListRecipes(List<Recipe> recipes)
+        {
+            Console.Clear();
+            if (recipes.Count == 0)
+            {
+                // No recipes to display
+                Console.WriteLine("No recipes available.");
+            }
+            else
+            {
+                // Display sorted list of recipe names
+                var sortedRecipes = recipes.OrderBy(r => r.Name).ToList();
+                Console.WriteLine("Recipes:");
+                foreach (var recipe in sortedRecipes)
+                {
+                    Console.WriteLine(recipe.Name);
+                }
+            }
+            Console.WriteLine("Press any key to return to the previous menu");
+            Console.ReadKey();
+        }
 
         /// <summary>
         /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
