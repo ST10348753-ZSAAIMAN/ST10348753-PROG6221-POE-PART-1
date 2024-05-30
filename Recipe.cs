@@ -10,6 +10,7 @@
 
 
 using System;
+using System.Collections.Generic;
 
 namespace ST10348753_PROG6221_POE_PART_1
 {
@@ -24,9 +25,9 @@ namespace ST10348753_PROG6221_POE_PART_1
         public string Name { get; private set; }
 
         /// <summary>
-        /// Gets the array of ingredients used in the recipe.
+        /// Gets the list of ingredients used in the recipe.
         /// </summary>
-        public Ingredient[] Ingredients { get; private set; }
+        public List<Ingredient> Ingredients { get; private set; }
 
         /// <summary>
         /// Gets the array of preparation steps for the recipe.
