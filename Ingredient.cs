@@ -52,6 +52,8 @@ namespace ST10348753_PROG6221_POE_PART_1
             OriginalQuantity = quantity;  // Store the initial quantity for reset purposes.
         }
 
+        //-----------------------------------------------------------------------------------------
+
         /// <summary>
         /// Scales the quantity of the ingredient by a specified factor. Adjusts the current quantity based on the original quantity.
         /// </summary>
