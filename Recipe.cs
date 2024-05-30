@@ -91,24 +91,28 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         /// <param name="step">The preparation step to add. Must not be null or empty.</param>
         /// <exception cref="ArgumentException">Thrown when the step is null or empty.</exception>
-
         public void AddStep(string step)
         {
+            // Check if the step is null or empty
             if (string.IsNullOrEmpty(step))
             {
-                throw new ArgumentException("Step cannot be null or empty.", nameof(step));
+                // Display error message in red text
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine("Step cannot be null or empty.");
+                Console.ResetColor();
+                return;
             }
 
             // Check if the steps array is full; if so, resize it
             if (stepCount == Steps.Length)
             {
-                string[] temp = Steps;
-                Array.Resize(ref temp, Steps.Length * 2); // Double the array size
-                Steps = temp; // Assign the resized array back
+                Array.Resize(ref Steps, Steps.Length * 2);
             }
 
-            Steps[stepCount++] = step; // Add step and increment the count
+            // Add the step to the array and increment the count
+            Steps[stepCount++] = step;
         }
+
 
         /// <summary>
         /// Displays the complete recipe including name, ingredients, and preparation steps.
