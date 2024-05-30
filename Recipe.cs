@@ -156,27 +156,18 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         public void ClearRecipe()
         {
-            // Ask for user confirmation before clearing the recipe
+            Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Are you sure you want to clear the recipe? (yes/no)");
-            string confirmation = Console.ReadLine();
-            if (confirmation?.ToLower() == "yes")
+            Console.ResetColor();
+            if (Console.ReadLine().ToLower() == "yes")
             {
-                // Clear the recipe data
-                Ingredients = new Ingredient[10];
-                Steps = new string[10];
-                ingredientCount = 0;
-                stepCount = 0;
-                // Display confirmation message in yellow text
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Recipe cleared. Starting a new recipe...");
-                Console.ResetColor();
+                Ingredients.Clear();
+                Steps.Clear();
+                Console.WriteLine("Recipe cleared. You can start a new recipe.");
             }
             else
             {
-                // Display cancellation message in yellow text
-                Console.ForegroundColor = ConsoleColor.Yellow;
-                Console.WriteLine("Clear recipe canceled.");
-                Console.ResetColor();
+                Console.WriteLine("Clearing canceled.");
             }
         }
 
