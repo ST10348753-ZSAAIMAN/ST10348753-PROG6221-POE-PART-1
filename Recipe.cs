@@ -142,9 +142,9 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         public void ResetQuantities()
         {
-            for (int i = 0; i < ingredientCount; i++)
+            foreach (var ingredient in Ingredients)
             {
-                Ingredients[i].Reset(); // Reset each ingredient to its original quantity
+                ingredient.Reset();
             }
         }
 
