@@ -119,6 +119,8 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         public void DisplayRecipe()
         {
+            // Display recipe name in green text
+            Console.ForegroundColor = ConsoleColor.Green;
             Console.WriteLine($"Recipe Name: {Name}");
             Console.WriteLine("Ingredients:");
             for (int i = 0; i < ingredientCount; i++)
@@ -133,8 +135,10 @@ namespace ST10348753_PROG6221_POE_PART_1
                 Console.WriteLine($"Step {i + 1}: {Steps[i]}");
             }
             Console.WriteLine("Press any key to return to the previous menu");
+            Console.ResetColor();
             Console.ReadKey(); // Pause the console for the user to read the recipe details
         }
+
 
         /// <summary>
         /// Scales the quantities of all ingredients in the recipe by a specified factor.
