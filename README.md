@@ -25,7 +25,7 @@ Enter each step one at a time when prompted. The steps are numbered automaticall
 2. **List Recipes**: Displays all recipes in alphabetical order.
 3. **Select Recipe**: Allows you to choose a specific recipe to view or edit.
 
-##Editing a Recipe
+### Editing a Recipe
 Once a recipe is created, you can modify it using the following options:
 1. **Display Recipe**: Prints the current state of the recipe to the console, including all ingredients and steps.
 2. **Scale Recipe**: Allows you to scale the quantities of ingredients. You will be prompted to enter a scaling factor (e.g., to double the recipe, enter 2).
@@ -53,17 +53,9 @@ The minimum hardware requirements provided by Microsoft for running applications
 - To view the code for this application, you can use an application such as Microsoft Visual Studio.
 - Recommended OS: Windows 11 64-bit
 
-##Changes Based on Lecturer’s Feedback
-Based on the lecturer's feedback, several improvements and features were added to enhance the application:
+To view the code for this application, you can use an application such as [Microsoft Visual Studio](https://visualstudio.microsoft.com/vs/community/).
 
-- **Error Handling**: Improved error handling to manage null values and incorrect data types effectively. Proper error messages are displayed to guide the user.
-- **Colored Text Display**: Incorporated colored text to enhance the user interface, making error messages, warnings, and information more distinguishable.
-- **Scaling Units**: Ensured that the units of measurement are correctly handled when scaling recipes. This includes appropriate conversions for better accuracy.
-- **Confirmation for Clearing Data: Added a user confirmation step before clearing all recipe data to prevent accidental data loss.
-- **Coding Standards**: Improved coding standards by adding separator lines between methods, end-of-file lines, and comprehensive comments explaining variables, methods, and the logic of the code.
-- **Generic Collections**: Transitioned from using arrays to generic collections (List) for storing recipes, ingredients, and steps, allowing for unlimited entries and easier data management.
-- **Delegate for Calorie Alerts**: Implemented a delegate to notify users when a recipe's total calories exceed 300, providing a more interactive user experience.
-- **Unit Testing**: Added unit tests to extensively cover scenarios for the total calorie calculation, ensuring the reliability and correctness of the feature.
+Recommended OS: Windows 11 64-bit
 
 ## Contributions
 Please feel free to comment on the work and make pull requests. Open an issue ticket to start a conversation about changes.
