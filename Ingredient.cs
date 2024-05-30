@@ -34,21 +34,35 @@ namespace ST10348753_PROG6221_POE_PART_1
         public string UnitOfMeasurement { get; set; }
 
         /// <summary>
+        /// Gets or sets the number of calories in the ingredient.
+        /// </summary>
+        public double Calories { get; set; }
+
+        /// <summary>
+        /// Gets or sets the food group of the ingredient.
+        /// </summary>
+        public string FoodGroup { get; set; }
+
+        /// <summary>
         /// Private field to hold the original quantity of the ingredient for reset functionality.
         /// </summary>
         private double OriginalQuantity { get; set; }
 
         /// <summary>
-        /// Constructs an Ingredient with specified details. Initializes name, quantity, and unit of measurement and stores the original quantity.
+        /// Constructs an Ingredient with specified details. Initializes name, quantity, unit of measurement, calories, and food group, and stores the original quantity.
         /// </summary>
         /// <param name="name">The name of the ingredient.</param>
         /// <param name="quantity">The initial quantity of the ingredient.</param>
         /// <param name="unitOfMeasurement">The unit of measurement for the quantity.</param>
-        public Ingredient(string name, double quantity, string unitOfMeasurement)
+        /// <param name="calories">The number of calories in the ingredient.</param>
+        /// <param name="foodGroup">The food group of the ingredient.</param>
+        public Ingredient(string name, double quantity, string unitOfMeasurement, double calories, string foodGroup)
         {
             Name = name;  // Assign the name of the ingredient.
             Quantity = quantity;  // Set the initial quantity.
             UnitOfMeasurement = unitOfMeasurement;  // Define the unit of measurement.
+            Calories = calories;  // Set the calories of the ingredient.
+            FoodGroup = foodGroup;  // Set the food group of the ingredient.
             OriginalQuantity = quantity;  // Store the initial quantity for reset purposes.
         }
 
@@ -79,4 +93,4 @@ namespace ST10348753_PROG6221_POE_PART_1
         }
     }
 }
-//------------------------------------------...ooo000 END OF FILE 000ooo...------------------------------------------------------//
+//------------------------------------------...ooo000 END OF FILE 000ooo...------------------------------------------------------
