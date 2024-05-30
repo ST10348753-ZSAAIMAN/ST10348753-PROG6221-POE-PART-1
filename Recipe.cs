@@ -64,6 +64,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         {
             if (ingredient == null)
             {
+                // Display error message if the ingredient is null
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Ingredient cannot be null.");
                 Console.ResetColor();
