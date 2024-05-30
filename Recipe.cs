@@ -84,6 +84,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         {
             if (string.IsNullOrEmpty(step))
             {
+                // Display error message if the step is null or empty
                 Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Step cannot be null or empty.");
                 Console.ResetColor();
