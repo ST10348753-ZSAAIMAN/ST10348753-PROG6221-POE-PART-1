@@ -164,14 +164,18 @@ namespace ST10348753_PROG6221_POE_PART_1
             while (true)
             {
                 string[] parts = Console.ReadLine().Split(' ');
-                // Ensure the format matches expected "Name Quantity Unit"
+                // Check if the input format is correct and the quantity is valid
                 if (parts.Length == 3 && double.TryParse(parts[1], out double quantity) && quantity > 0)
                 {
                     return new Ingredient(parts[0], quantity, parts[2]);
                 }
+                // Display error message in red text
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Invalid input. Please enter in the format 'Name Quantity Unit':");
+                Console.ResetColor();
             }
         }
+
     }
 
 }
