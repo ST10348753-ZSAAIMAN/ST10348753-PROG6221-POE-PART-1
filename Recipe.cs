@@ -166,6 +166,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             }
         }
 
+        //-----------------------------------------------------------------------------------------
 
         /// <summary>
         /// Resets the quantities of all ingredients in the recipe to their original values.
