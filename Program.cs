@@ -143,12 +143,17 @@ namespace ST10348753_PROG6221_POE_PART_1
         private static double ReadDouble()
         {
             double result;
+            // Loop until a valid positive double is entered
             while (!double.TryParse(Console.ReadLine(), out result) || result <= 0)
             {
+                // Display error message in red text
+                Console.ForegroundColor = ConsoleColor.Red;
                 Console.WriteLine("Invalid input. Please enter a valid positive number:");
+                Console.ResetColor();
             }
             return result;
         }
+
 
         /// <summary>
         /// Validates the format of the input for an ingredient and creates an Ingredient object.
