@@ -193,6 +193,7 @@ namespace ST10348753_PROG6221_POE_PART_1
                 totalCalories += ingredient.Calories;
             }
 
+            // Trigger the calorie exceeded event if total calories exceed 300
             if (totalCalories > 300)
             {
                 OnCalorieExceeded?.Invoke(Name);
