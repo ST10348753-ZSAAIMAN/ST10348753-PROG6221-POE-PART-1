@@ -178,14 +178,34 @@ namespace ST10348753_PROG6221_POE_PART_1
 
         /// <summary>
         /// Clears all ingredients and steps from the recipe, effectively resetting it.
+        /// Asks for user confirmation before clearing the data.
         /// </summary>
         public void ClearRecipe()
         {
-            Ingredients = new Ingredient[10]; // Reset the Ingredients array to initial capacity
-            Steps = new string[10];           // Reset the Steps array to initial capacity
-            ingredientCount = 0;              // Reset the ingredient count
-            stepCount = 0;                    // Reset the step count
+            // Ask for user confirmation before clearing the recipe
+            Console.WriteLine("Are you sure you want to clear the recipe? (yes/no)");
+            string confirmation = Console.ReadLine();
+            if (confirmation?.ToLower() == "yes")
+            {
+                // Clear the recipe data
+                Ingredients = new Ingredient[10];
+                Steps = new string[10];
+                ingredientCount = 0;
+                stepCount = 0;
+                // Display confirmation message in yellow text
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Recipe cleared. Starting a new recipe...");
+                Console.ResetColor();
+            }
+            else
+            {
+                // Display cancellation message in yellow text
+                Console.ForegroundColor = ConsoleColor.Yellow;
+                Console.WriteLine("Clear recipe canceled.");
+                Console.ResetColor();
+            }
         }
+
 
     }
 }
