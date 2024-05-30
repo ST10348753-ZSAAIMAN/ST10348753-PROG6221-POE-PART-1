@@ -143,6 +143,8 @@ namespace ST10348753_PROG6221_POE_PART_1
             return result;
         }
 
+        //---------------------------------------------------------------------------------------------
+
 
         /// <summary>
         /// Reads a positive double from the console, ensuring valid input.
