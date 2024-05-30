@@ -30,9 +30,10 @@ namespace ST10348753_PROG6221_POE_PART_1
         public List<Ingredient> Ingredients { get; private set; }
 
         /// <summary>
-        /// Gets the array of preparation steps for the recipe.
+        /// Gets the list of preparation steps for the recipe.
         /// </summary>
-        public string[] Steps { get; private set; }
+        public List<string> Steps { get; private set; }
+
 
         /// <summary>
         /// Delegate for notifying when total calories exceed a specified limit.
