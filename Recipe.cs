@@ -42,27 +42,14 @@ namespace ST10348753_PROG6221_POE_PART_1
         public event CalorieExceededHandler OnCalorieExceeded;
 
         /// <summary>
-        /// Tracks the current number of ingredients to manage additions and array resizing.
-        /// </summary>
-        private int ingredientCount;
-
-        /// <summary>
-        /// Tracks the current number of preparation steps to manage additions and array resizing.
-        /// </summary>
-        private int stepCount;
-
-        /// <summary>
         /// Initializes a new instance of the Recipe class with a specified name.
-        /// It sets initial capacities for Ingredients and Steps arrays.
         /// </summary>
         /// <param name="name">Name of the recipe.</param>
         public Recipe(string name)
         {
-            Name = name;  // Set the recipe name
-            Ingredients = new Ingredient[10]; // Initialize ingredients array with initial capacity
-            Steps = new string[10];           // Initialize steps array with initial capacity
-            ingredientCount = 0;              // Initialize ingredient count
-            stepCount = 0;                    // Initialize step count
+            Name = name;
+            Ingredients = new List<Ingredient>();
+            Steps = new List<string>();
         }
 
         /// <summary>
