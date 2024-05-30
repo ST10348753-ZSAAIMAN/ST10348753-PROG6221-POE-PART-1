@@ -140,6 +140,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             Console.ReadKey(); // Pause the console for the user to read the recipe details
         }
 
+        //-----------------------------------------------------------------------------------------
 
         /// <summary>
         /// Scales the quantities of all ingredients in the recipe by a specified factor.
