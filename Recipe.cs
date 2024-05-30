@@ -110,6 +110,7 @@ namespace ST10348753_PROG6221_POE_PART_1
                 Console.WriteLine($"{ingredient.Quantity} {ingredient.UnitOfMeasurement} of {ingredient.Name} - {ingredient.Calories} calories, {ingredient.FoodGroup}");
             }
 
+            // Display preparation steps
             Console.WriteLine("\nPreparation Steps:");
             for (int i = 0; i < Steps.Count; i++)
             {
