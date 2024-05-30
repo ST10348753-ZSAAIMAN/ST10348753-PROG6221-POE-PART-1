@@ -25,6 +25,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         private static void Main(string[] args)
         {
+            // List to store multiple recipes
             List<Recipe> recipes = new List<Recipe>();
 
             while (true)
