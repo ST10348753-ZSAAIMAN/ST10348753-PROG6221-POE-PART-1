@@ -39,6 +39,10 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// Delegate for notifying when total calories exceed a specified limit.
         /// </summary>
         public delegate void CalorieExceededHandler(string recipeName);
+
+        /// <summary>
+        /// Event triggered when total calories exceed a specified limit.
+        /// </summary>
         public event CalorieExceededHandler OnCalorieExceeded;
 
         /// <summary>
