@@ -34,6 +34,8 @@ namespace ST10348753_PROG6221_POE_PART_1
             }
         }
 
+        //---------------------------------------------------------------------------------------------
+
         /// <summary>
         /// Guides the user through the creation of a new recipe by entering ingredients and steps.
         /// </summary>
