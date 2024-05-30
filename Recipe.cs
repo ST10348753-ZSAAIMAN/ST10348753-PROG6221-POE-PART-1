@@ -165,6 +165,7 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         public void ClearRecipe()
         {
+            // Ask for user confirmation before clearing the recipe
             Console.ForegroundColor = ConsoleColor.Yellow;
             Console.WriteLine("Are you sure you want to clear the recipe? (yes/no)");
             Console.ResetColor();
