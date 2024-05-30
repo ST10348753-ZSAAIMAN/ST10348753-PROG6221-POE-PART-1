@@ -10,6 +10,7 @@
 
 
 using System;
+using System.Collections.Generic;
 using System.Threading;
 
 namespace ST10348753_PROG6221_POE_PART_1
@@ -24,13 +25,33 @@ namespace ST10348753_PROG6221_POE_PART_1
         /// </summary>
         private static void Main(string[] args)
         {
-            // Begin by creating the initial recipe based on user input
-            Recipe myRecipe = CreateRecipe();
+            List<Recipe> recipes = new List<Recipe>();
 
-            // Continuously process user commands until the application is explicitly exited
             while (true)
             {
-                myRecipe = EditRecipe(myRecipe);
+                Console.Clear();
+                Console.WriteLine("Enter a command number:\n1. Add Recipe\n2. List Recipes\n3. Select Recipe\n4. Exit");
+                int command = ReadInt();
+                switch (command)
+                {
+                    case 1:
+                        recipes.Add(CreateRecipe());
+                        break;
+                    case 2:
+                        ListRecipes(recipes);
+                        break;
+                    case 3:
+                        SelectRecipe(recipes);
+                        break;
+                    case 4:
+                        Environment.Exit(0);
+                        break;
+                    default:
+                        Console.ForegroundColor = ConsoleColor.Red;
+                        Console.WriteLine("Invalid command. Please try again.");
+                        Console.ResetColor();
+                        break;
+                }
             }
         }
 
@@ -55,7 +76,7 @@ namespace ST10348753_PROG6221_POE_PART_1
             for (int i = 0; i < numIngredients; i++)
             {
                 Console.Clear();
-                Console.WriteLine($"Enter name, quantity, and unit of measurement for ingredient {i + 1} (e.g., Sugar 1.5 cups):");
+                Console.WriteLine($"Enter name, quantity, unit of measurement, calories, and food group for ingredient {i + 1} (e.g., Sugar 1.5 cups 100 Sweeteners):");
                 Ingredient ingredient = ReadIngredient(); // Read each ingredient using the specified format
                 myRecipe.AddIngredient(ingredient); // Add the ingredient to the recipe
                 Console.Clear();  // Clear the console after each ingredient is added
