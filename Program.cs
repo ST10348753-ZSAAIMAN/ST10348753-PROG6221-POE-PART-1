@@ -94,6 +94,13 @@ namespace ST10348753_PROG6221_POE_PART_1
                 myRecipe.AddStep(step); // Add the step to the recipe
             }
 
+            myRecipe.OnCalorieExceeded += recipeName =>
+            {
+                Console.ForegroundColor = ConsoleColor.Red;
+                Console.WriteLine($"Warning: The total calories for {recipeName} exceed 300!");
+                Console.ResetColor();
+            };
+
             return myRecipe; // Return the fully constructed recipe
         }
 
