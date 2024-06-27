@@ -212,6 +212,48 @@ namespace ST10348753_PROG6221_POE_PART_2
         //---------------------------------------------------------------------------------------------
 
         /// <summary>
+        /// Scales the selected recipe's ingredients by a specified factor.
+        /// </summary>
+        /// <param name="recipes">The list of recipes to select from.</param>
+        private static void ScaleRecipe(List<Recipe> recipes)
+        {
+            Console.Clear();
+            if (recipes.Count == 0)
+            {
+                // No recipes to scale
+                Console.WriteLine("No recipes available.");
+            }
+            else
+            {
+                // Prompt for recipe name to scale
+                Console.WriteLine("Enter the name of the recipe you want to scale:");
+                string name = Console.ReadLine();
+                var recipe = recipes.FirstOrDefault(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                if (recipe != null)
+                {
+                    Console.WriteLine("Enter scale factor (e.g., 0.5, 2, 3):");
+                    double factor = ReadDouble();
+                    recipe.ScaleRecipe(factor);
+                    Console.Clear();
+                    Console.WriteLine("Scaled Recipe:");
+                    recipe.DisplayRecipe();
+                }
+                else
+                {
+                    // Recipe not found
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Recipe not found.");
+                    Console.ResetColor();
+                    Console.WriteLine("Press any key to return to the previous menu");
+                    Console.ReadKey();
+                }
+            }
+        }
+
+        //---------------------------------------------------------------------------------------------
+
+
+        /// <summary>
         /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
         /// </summary>
         /// <param name="recipe">The recipe to edit.</param>
