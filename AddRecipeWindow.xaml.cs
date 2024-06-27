@@ -1,28 +1,37 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
+﻿using System.Collections.Generic;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
-namespace ST10348753_PROG6221_POE_PART_1
+namespace ST10348753_PROG6221_POE_PART_2
 {
-    /// <summary>
-    /// Interaction logic for AddRecipeWindow.xaml
-    /// </summary>
-    public partial class AddRecipeWindow : UserControl
+    public partial class AddRecipeWindow : Window
     {
-        public AddRecipeWindow()
+        private List<Recipe> recipes;
+
+        public AddRecipeWindow(List<Recipe> recipes)
         {
             InitializeComponent();
+            this.recipes = recipes;
+        }
+
+        private void AddRecipeButton_Click(object sender, RoutedEventArgs e)
+        {
+            string recipeName = RecipeNameTextBox.Text;
+            int numIngredients;
+            if (int.TryParse(NumIngredientsTextBox.Text, out numIngredients))
+            {
+                Recipe newRecipe = new Recipe(recipeName);
+                for (int i = 0; i < numIngredients; i++)
+                {
+                    // Add logic to input ingredient details
+                }
+                recipes.Add(newRecipe);
+                MessageBox.Show("Recipe added successfully!");
+                this.Close();
+            }
+            else
+            {
+                MessageBox.Show("Please enter a valid number of ingredients.");
+            }
         }
     }
 }
