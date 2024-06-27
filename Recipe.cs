@@ -104,14 +104,14 @@ namespace ST10348753_PROG6221_POE_PART_2
 
         //-----------------------------------------------------------------------------------------
 
-        /// <summary>
+        // <summary>
         /// Displays the complete recipe including name, ingredients, and preparation steps.
         /// </summary>
         public void DisplayRecipe()
         {
             // Display recipe name and ingredients
             Console.ForegroundColor = ConsoleColor.Green;
-            Console.WriteLine($"Recipe Name: {Name}");
+            Console.WriteLine($"********** Recipe Name: {Name} **********");
             Console.WriteLine("Ingredients:");
             foreach (var ingredient in Ingredients)
             {
@@ -125,6 +125,7 @@ namespace ST10348753_PROG6221_POE_PART_2
                 Console.WriteLine($"Step {i + 1}: {Steps[i]}");
             }
             Console.ResetColor();
+            Console.WriteLine("----------------------------------------");
             Console.WriteLine("Press any key to return to the previous menu");
             Console.ReadKey();
         }
