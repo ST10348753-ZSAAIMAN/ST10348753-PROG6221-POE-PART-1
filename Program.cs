@@ -252,6 +252,43 @@ namespace ST10348753_PROG6221_POE_PART_2
 
         //---------------------------------------------------------------------------------------------
 
+        /// <summary>
+        /// Resets the quantities of all ingredients in the selected recipe to their original values.
+        /// </summary>
+        /// <param name="recipes">The list of recipes to select from.</param>
+        private static void ResetRecipeQuantities(List<Recipe> recipes)
+        {
+            Console.Clear();
+            if (recipes.Count == 0)
+            {
+                // No recipes to reset
+                Console.WriteLine("No recipes available.");
+            }
+            else
+            {
+                // Prompt for recipe name to reset
+                Console.WriteLine("Enter the name of the recipe you want to reset:");
+                string name = Console.ReadLine();
+                var recipe = recipes.FirstOrDefault(r => r.Name.Equals(name, StringComparison.OrdinalIgnoreCase));
+                if (recipe != null)
+                {
+                    recipe.ResetQuantities();
+                    Console.WriteLine("Recipe quantities have been reset.");
+                }
+                else
+                {
+                    // Recipe not found
+                    Console.ForegroundColor = ConsoleColor.Red;
+                    Console.WriteLine("Recipe not found.");
+                    Console.ResetColor();
+                }
+                Console.WriteLine("Press any key to return to the previous menu");
+                Console.ReadKey();
+            }
+        }
+
+        //---------------------------------------------------------------------------------------------
+
 
         /// <summary>
         /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
