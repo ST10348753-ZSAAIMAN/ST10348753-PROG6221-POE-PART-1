@@ -23,7 +23,6 @@
 //             https://www.tutorialsteacher.com/csharp/csharp-property
 //             https://www.tutorialsteacher.com/csharp/constructors-in-csharp
 
-
 using System;
 
 namespace ST10348753_PROG6221_POE_PART_2
