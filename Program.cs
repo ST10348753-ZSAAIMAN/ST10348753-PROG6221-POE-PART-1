@@ -326,7 +326,6 @@ namespace ST10348753_PROG6221_POE_PART_2
 
         //---------------------------------------------------------------------------------------------
 
-
         /// <summary>
         /// Provides a user interface for editing the recipe including displaying, scaling, resetting, or clearing the recipe.
         /// </summary>
