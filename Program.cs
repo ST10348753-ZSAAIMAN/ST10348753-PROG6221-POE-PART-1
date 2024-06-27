@@ -49,7 +49,7 @@ namespace ST10348753_PROG6221_POE_PART_2
             {
                 Console.Clear();
                 // Display the main menu options
-                Console.WriteLine("Enter a command number:\n1. Add Recipe\n2. List Recipes\n3. Select Recipe\n4. Exit");
+                Console.WriteLine("Enter a command number:\n1. Add Recipe\n2. Display a Specific Recipe\n3. View All Recipes\n4. Scale a Recipe\n5. Reset Ingredient Quantities\n6. Clear a Recipe\n7. Exit");
                 int command = ReadInt(); // Read user command
                 switch (command)
                 {
@@ -58,14 +58,26 @@ namespace ST10348753_PROG6221_POE_PART_2
                         recipes.Add(CreateRecipe());
                         break;
                     case 2:
+                        // Display a specific recipe
+                        SelectRecipe(recipes);
+                        break;
+                    case 3:
                         // List all recipes in alphabetical order
                         ListRecipes(recipes);
                         break;
-                    case 3:
-                        // Select a recipe to display and edit
-                        SelectRecipe(recipes);
-                        break;
                     case 4:
+                        // Scale a recipe
+                        ScaleRecipe(recipes);
+                        break;
+                    case 5:
+                        // Reset ingredient quantities
+                        ResetRecipeQuantities(recipes);
+                        break;
+                    case 6:
+                        // Clear a recipe
+                        ClearRecipe(recipes);
+                        break;
+                    case 7:
                         // Exit the application
                         Environment.Exit(0);
                         break;
