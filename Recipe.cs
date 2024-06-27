@@ -202,6 +202,22 @@ namespace ST10348753_PROG6221_POE_PART_2
                 totalCalories += ingredient.Calories;
             }
 
+            // Provide an explanation based on the total calories
+            Console.ForegroundColor = ConsoleColor.Cyan;
+            if (totalCalories < 200)
+            {
+                Console.WriteLine("This recipe is low in calories, suitable for a snack.");
+            }
+            else if (totalCalories >= 200 && totalCalories <= 500)
+            {
+                Console.WriteLine("This recipe has moderate calories, suitable for a balanced meal.");
+            }
+            else
+            {
+                Console.WriteLine("This recipe is high in calories and should be consumed sparingly.");
+            }
+            Console.ResetColor();
+
             // Trigger the calorie exceeded event if total calories exceed 300
             if (totalCalories > 300)
             {
@@ -210,7 +226,6 @@ namespace ST10348753_PROG6221_POE_PART_2
 
             return totalCalories;
         }
-
     }
 }
 //------------------------------------------...ooo000 END OF FILE 000ooo...------------------------------------------------------//
